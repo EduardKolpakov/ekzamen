@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.IO;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace ekzamen
 {
@@ -21,9 +23,11 @@ namespace ekzamen
     public partial class MainWindow : Window
     {
         int[] temperatures;
+        string FilePath;
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void CheckBtn_Click(object sender, RoutedEventArgs e)
@@ -83,9 +87,46 @@ namespace ekzamen
 
         private void LoadDataBtn_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Выберите файл",
+                Filter = "Текстовые файлы (*.txt)|*.txt|Все файлы (*.*)|*.*"
+            };
+            if (openFileDialog.ShowDialog() == true)
+            {
+                FilePath = openFileDialog.FileName;
+            }
+            ReadData();
+        }
+        public void ReadData()
+        {
+            DateTime startDateTime;
+            if (!File.Exists(FilePath))
+            {
+                MessageBox.Show("Ошибка: файл не найден.");
+                return;
+            }
+            string[] fileLines = File.ReadAllLines(FilePath);
+            if (fileLines.Length != 2)
+            {
+                MessageBox.Show("Ошибка: файл должен содержать ровно две строки.");
+                return;
+            }
+            string[] temperatureStrings = fileLines[1].Split(' ');
+            try
+            {
+                temperatures = temperatureStrings.Select(temp => int.Parse(temp.Trim())).ToArray();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Ошибка: вторая строка должна содержать целые числа");
+                return;
+            }
+            startDateTime = DateTime.Parse(fileLines[0]);
+            ShipmentDateTxt.Text = startDateTime.ToString();
+            TempChangeTxt.Text = string.Join(" ", temperatures);
 
         }
-
         private void SaveReport_Click(object sender, RoutedEventArgs e)
         {
 
