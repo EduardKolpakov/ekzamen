@@ -107,12 +107,12 @@ namespace ekzamen
                 if (t > maxTemp)
                 {
                     OverheatTime += 10;
-                    res += $"Текущее время: {CurTime}; Текущее отклонение: {t - maxTemp}\n";
+                    res += $"Текущее время: {CurTime}; Норма: {maxTemp}; Факт: {t}; Текущее отклонение: {t - maxTemp}\n";
                 }
                 if (t < minTemp)
                 {
                     OvercoldTime += 10;
-                    res += $"Текущее время: {CurTime}; Текущее отклонение: {t - minTemp}\n";
+                    res += $"Текущее время: {CurTime}; Норма: {minTemp}; Факт: {t}; Текущее отклонение: {Math.Abs(t - minTemp)}\n";
                 }
             }
             if (OvercoldTime > minTempTime)
