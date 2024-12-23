@@ -24,5 +24,20 @@ namespace ekzamen
         {
             InitializeComponent();
         }
+
+        private void CheckBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LoadDataBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveReport_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
