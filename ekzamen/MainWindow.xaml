@@ -10,12 +10,12 @@
         <ComboBox x:Name="FishKindSel" HorizontalAlignment="Left" Margin="50,52,0,0" VerticalAlignment="Top" Width="150" Height="26" SelectionChanged="FishKindSel_SelectionChanged"/>
         <Label Content="Вид рыбы" HorizontalAlignment="Left" Margin="44,21,0,0" VerticalAlignment="Top" Width="75" Foreground="White"/>
         <Label Content="Минимальная температура" HorizontalAlignment="Left" Margin="45,82,0,0" VerticalAlignment="Top" Width="163" Foreground="White"/>
-        <TextBox x:Name="MinTempTxt" HorizontalAlignment="Left" Margin="50,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="26"/>
-        <TextBox x:Name="MaxTempTxt" HorizontalAlignment="Left" Margin="51,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="26"/>
+        <TextBox x:Name="MinTempTxt" HorizontalAlignment="Left" Margin="50,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="26" PreviewTextInput="MinTempTxt_PreviewTextInput"/>
+        <TextBox x:Name="MaxTempTxt" HorizontalAlignment="Left" Margin="51,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="176" Height="26" PreviewTextInput="MaxTempTxt_PreviewTextInput"/>
         <Label Content="Максимальная температура" HorizontalAlignment="Left" Margin="45,144,0,0" VerticalAlignment="Top" Width="176" Foreground="White"/>
         <Label Content="Дата отгрузки" HorizontalAlignment="Left" Margin="263,22,0,0" VerticalAlignment="Top" Width="176" Foreground="White"/>
         <TextBox x:Name="ShipmentDateTxt" HorizontalAlignment="Left" Margin="263,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="24"/>
-        <TextBox x:Name="TempChangeTxt" HorizontalAlignment="Left" Margin="50,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" Height="24"/>
+        <TextBox x:Name="TempChangeTxt" HorizontalAlignment="Left" Margin="50,240,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" Height="24" PreviewTextInput="TempChangeTxt_PreviewTextInput"/>
         <Label Content="Изменение температур" HorizontalAlignment="Left" Margin="50,209,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Border BorderBrush="Black" BorderThickness="2" Margin="50,269,49,0">
             <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
@@ -25,9 +25,9 @@
         <Button x:Name="CheckBtn" Content="Проверить" HorizontalAlignment="Left" Margin="440,242,0,0" VerticalAlignment="Top" Width="100" Click="CheckBtn_Click" Background="#FF00D403" Foreground="White" BorderBrush="Black"/>
         <Button x:Name="LoadDataBtn" Content="Загрузить данные" HorizontalAlignment="Left" Margin="583,242,0,0" VerticalAlignment="Top" Width="190" Click="LoadDataBtn_Click" Background="#FF00D403" Foreground="White" BorderBrush="Black"/>
         <Label Content="Допустимое время переохлаждения" HorizontalAlignment="Left" Margin="263,82,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="OvercoldTimeTxt" HorizontalAlignment="Left" Margin="263,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="26"/>
+        <TextBox x:Name="OvercoldTimeTxt" HorizontalAlignment="Left" Margin="263,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="26" PreviewTextInput="OvercoldTimeTxt_PreviewTextInput"/>
         <Label Content="Допустимое время перегрева" HorizontalAlignment="Left" Margin="263,144,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="OverheatTimeTxt" HorizontalAlignment="Left" Margin="263,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="26"/>
+        <TextBox x:Name="OverheatTimeTxt" HorizontalAlignment="Left" Margin="263,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Height="26" PreviewTextInput="OverheatTimeTxt_PreviewTextInput"/>
         <Button x:Name="SaveReport" Content="Сохранить отчет" HorizontalAlignment="Left" Margin="671,53,0,0" VerticalAlignment="Top" Width="150" Height="25" Click="SaveReport_Click" Background="#FF00D403" Foreground="White" BorderBrush="Black"/>
     </Grid>
 </Window>
